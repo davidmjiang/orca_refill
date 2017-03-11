@@ -1,8 +1,9 @@
 class App extends React.Component {
 	componentDidMount() {
 		this.map = new google.maps.Map(this.refs.map, {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
+			//Downtown Seattle
+          center: {lat: 47.6063889, lng: -122.3308333},
+          zoom: 14
         });
 	}
   render () {
