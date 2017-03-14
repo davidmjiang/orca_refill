@@ -1,6 +1,6 @@
 class InfoWindow extends React.Component {
   render () {
-    return <div />;
+    return <div>Hello World</div>;
   }
 }
 

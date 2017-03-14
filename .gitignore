@@ -20,4 +20,4 @@
 /config/application.yml
 
 #Ignore csv
-.csv
+/.csv

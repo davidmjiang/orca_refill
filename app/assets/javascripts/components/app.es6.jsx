@@ -6,6 +6,7 @@ class App extends React.Component {
 		this.makeLatLong = this.makeLatLong.bind(this);
 		this.makeMarker = this.makeMarker.bind(this);
 		this.makeInfoWindow = this.makeInfoWindow.bind(this);
+		this.makeInfoWindowText = this.makeInfoWindowText.bind(this);
 	}
 	componentDidMount() {
 		//create map
@@ -31,7 +32,7 @@ class App extends React.Component {
 	}
 	makeInfoWindow(location, marker){
 		let infoWindow = new google.maps.InfoWindow({
-			content: location.name,
+			content: this.makeInfoWindowText(location),
 			position: this.makeLatLong(location)
 		});
 		infoWindow.open(this.map, marker);
@@ -44,6 +45,12 @@ class App extends React.Component {
 	makeLatLong (location){
 		let latLong = new google.maps.LatLng(location.latitude, location.longitude);
 		return latLong;
+	}
+	makeInfoWindowText(location){
+		return `<ul>
+		<li>${location.name}</li>
+		<li>${location.address}</li>
+		</ul>`
 	}
   render () {
 		const mapStyle = {
