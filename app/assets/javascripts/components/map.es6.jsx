@@ -20,6 +20,7 @@ class Map extends React.Component {
           center: {lat: 47.6063889, lng: -122.3308333},
           zoom: 12
         });
+		this.props.setMap(this.map);
 		let infoWindow = new google.maps.InfoWindow();
 		if(navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition((position) => {
@@ -49,8 +50,9 @@ class Map extends React.Component {
 		infoWindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Your browser doesn\'t support geolocation.');
 	}
 	makeMarker (location){
+		let position = this.makeLatLong(location);
 		let marker = new google.maps.Marker({
-			position: this.makeLatLong(location), 
+			position: position, 
 			map: this.map,
 			title: location.name
 		});

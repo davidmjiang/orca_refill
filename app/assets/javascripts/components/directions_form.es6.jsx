@@ -2,9 +2,11 @@
 class DirectionsForm extends React.Component {
 	constructor(){
 		super();
-		this.state = {origin: ""}
+		this.state = {origin: "", travelMode: "WALKING"}
 		this.useCurrentLocation = this.useCurrentLocation.bind(this);
 		this.processForm = this.processForm.bind(this);
+		this.updateTravelMode = this.updateTravelMode.bind(this);
+		this.updateOrigin = this.updateOrigin.bind(this);
 	}
 	useCurrentLocation(e){
 		if(e.target.checked){
@@ -17,9 +19,12 @@ class DirectionsForm extends React.Component {
 	updateOrigin(e){
 		this.setState({origin: e.target.value});
 	}
+	updateTravelMode(e){
+		this.setState({travelMode: e.target.value});
+	}
 	processForm(e){
 		e.preventDefault();
-		console.log(e);
+		this.props.getDirections({origin: this.state.origin, travelMode: this.state.travelMode});
 	}
   render () {
     return <div>
@@ -34,8 +39,8 @@ class DirectionsForm extends React.Component {
     	</div>
     	<div className="form-group">
 		  	Mode of transport: 
-		  	<select className="custom-select">
-		  		<option value="WALKING" selected="selected">Walking</option>
+		  	<select className="custom-select" value={this.state.travelMode} onChange={this.updateTravelMode}>
+		  		<option value="WALKING">Walking</option>
 		  		<option value="TRANSIT">Transit</option>
 		  		<option value="DRIVING">Driving</option>
 		  	</select>

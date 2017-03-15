@@ -13,6 +13,7 @@
  */
  
 @import "bootstrap";
+$sidebar-width: 35%;
 html, body, .main{
 	height: 100%;
 }
@@ -26,12 +27,13 @@ html, body, .main{
 	z-index: 100;
 	background-color: rgba(0,0,0,.4);
 	height: 100%;
-	width: 33.3%;
-	left: -33.3%;
+	width: $sidebar-width;
+	left: -$sidebar-width;
 	transition: left 0.5s;
 	-webkit-transition: left 0.5s;
 	background-color: #4285F4;
 	color: white;
+	overflow-y: scroll;
 }
 
 .slide-in{
@@ -44,4 +46,8 @@ html, body, .main{
 
 .directions-form{
 	color: black;
+}
+
+.directions-text{
+	background-color: white;
 }
