@@ -12,11 +12,11 @@ class InfoWindow extends React.Component {
   	let classes = this.props.open ? "sidebar slide-in" : "sidebar";
   	if(this.props.open){
 	    return <div className={classes}>
-			<button type="button" className="btn btn-default close-sidebar" onClick={this.props.handleClick}>X</button>	
+			<button type="button" className="btn btn-default close-sidebar" onClick={this.props.handleClick}>&times;</button>	
 	    <h1>{this.props.location.name}</h1>
 	    <p>{this.props.location.address}</p>
 	  	<DirectionsForm getDirections={this.getDirections} userLocation ={this.props.userLocation} />
-	  	<div ref="directionsText" class="directions-text"/>
+	  	<div ref="directionsText" className="directions-text"/>
 	    </div>;
   	}
   	else{
