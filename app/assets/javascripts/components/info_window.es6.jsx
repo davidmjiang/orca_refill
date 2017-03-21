@@ -4,9 +4,8 @@ class InfoWindow extends React.Component {
 		super();
 		this.getDirections = this.getDirections.bind(this);
 	}
-	getDirections(options){
-		this.refs.directionsText.innerHTML = '';
-		this.props.getDirections(options, this.refs.directionsText);
+	getDirections(options, ref){
+		this.props.getDirections(options, ref);
 	}
   render () {
   	let classes = this.props.open ? "sidebar slide-in" : "sidebar";
@@ -16,7 +15,6 @@ class InfoWindow extends React.Component {
 	    <h1>{this.props.location.name}</h1>
 	    <p>{this.props.location.address}</p>
 	  	<DirectionsForm getDirections={this.getDirections} userLocation ={this.props.userLocation} />
-	  	<div ref="directionsText" className="directions-text"/>
 	    </div>;
   	}
   	else{

@@ -8,6 +8,13 @@ class DirectionsForm extends React.Component {
 		this.updateTravelMode = this.updateTravelMode.bind(this);
 		this.updateOrigin = this.updateOrigin.bind(this);
 	}
+	componentDidMount(){
+		// if geolocation is on, automatically get walking directions from there
+		if(this.props.userLocation){
+			this.setState({origin: "Current Location"})
+			this.processForm("WALKING", "Current Location");
+		}
+	}
 	useCurrentLocation(e){
 		if(e.target.checked){
 			this.setState({origin: "Current Location"});
@@ -20,12 +27,15 @@ class DirectionsForm extends React.Component {
 		this.setState({origin: e.target.value});
 	}
 	updateTravelMode(e){
-		this.setState({travelMode: e.target.value});
+		let travelMode = e.currentTarget.getAttribute("value")
+		this.processForm(travelMode)
 	}
-	processForm(e){
-		e.preventDefault();
-		this.props.getDirections({origin: this.state.origin, travelMode: this.state.travelMode});
+	processForm(travelMode, origin){
+		origin = origin || this.state.origin;
+		this.refs.directionsText.innerHTML = '';
+		this.props.getDirections({origin: origin, travelMode: travelMode}, this.refs.directionsText);
 	}
+
   render () {
     return <div>
     <form className="directions-form" onSubmit={this.processForm}>
@@ -38,15 +48,14 @@ class DirectionsForm extends React.Component {
 	  		</label>
     	</div>
     	<div className="form-group">
-		  	Mode of transport: 
-		  	<select className="custom-select" value={this.state.travelMode} onChange={this.updateTravelMode}>
-		  		<option value="WALKING">Walking</option>
-		  		<option value="TRANSIT">Transit</option>
-		  		<option value="DRIVING">Driving</option>
-		  	</select>
+	    	<ul className="travel-options">
+		    	<li onClick={this.updateTravelMode} value="WALKING"><i className="material-icons">directions_walk</i></li>
+		    	<li onClick={this.updateTravelMode} value="TRANSIT"><i className="material-icons">directions_transit</i></li>
+		    	<li onClick={this.updateTravelMode} value="DRIVING"><i className="material-icons">directions_car</i></li>
+	    	</ul>
 	  	</div>
-	  	<button type="submit" className="btn btn-primary">Submit</button>
 	  	</form>
+	  	<div ref="directionsText" className="directions-text"/>
 	  </div>
   }
 }

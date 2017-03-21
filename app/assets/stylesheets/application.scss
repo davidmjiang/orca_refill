@@ -17,6 +17,12 @@ $sidebar-width: 35%;
 html, body, .main{
 	height: 100%;
 	font-family: Tahoma, Geneva, sans-serif;
+	color: white;
+	background-color: #244a9f;
+}
+
+.map{
+	color: black;
 }
 
 .sidebar{
@@ -47,4 +53,14 @@ html, body, .main{
 .directions-text{
 	background-color: white;
 	color: black;
+}
+
+.travel-options{
+	list-style: none;
+}
+
+.travel-options li{
+	display: inline-block;
+	margin: 0 10%;
+	cursor: pointer;
 }
