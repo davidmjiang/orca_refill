@@ -2,7 +2,6 @@
 class App extends React.Component {
   render () {
   	return <div>
-  	<Header />
   	<MapContainer locations={this.props.locations}/>
   	</div>
   }

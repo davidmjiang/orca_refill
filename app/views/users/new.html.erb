@@ -1,0 +1,14 @@
+<p>Already have an account? <%= link_to "Log in", log_in_path %></p>
+<%= form_for User.new do |f| %>
+<%=f.label :username %>
+<%=f.text_field :username %>
+<%=f.label :email %>
+<%=f.text_field :email %>
+<%=f.label :phone %>
+<%=f.text_field :phone %>
+<%=f.label :password %>
+<%=f.password_field :password %>
+<%=f.label :password_confirmation %>
+<%=f.password_field :password_confirmation %>
+<%=f.submit "Sign Up"%>
+<%end %>

@@ -1,1 +1,6 @@
+<div class="text-center header">
+    <h1>ORCA refill locations</h1>
+    <h4>Click on a marker to get directions</h4>
+    <h4>Check <%= link_to "my card", log_in_path %></h4>
+</div>
 <%= react_component('App', {locations: @locations},{class: "main"}) %>
