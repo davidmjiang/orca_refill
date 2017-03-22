@@ -1,0 +1,7 @@
+<h4><%=card.name %></h4>
+<% if card.balance %>
+	<p>Balance: <%=card.balance %></p>
+<% else %>
+	<p>We could not find your balance. Check that your card info is correct.</p>
+<% end %>
+<p>Reminder when balance gets below: <%=card.reminder_amount %></p>

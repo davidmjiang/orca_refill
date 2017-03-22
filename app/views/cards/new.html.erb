@@ -1,0 +1,20 @@
+<% if @card.errors.any? %>
+	<% @card.errors.full_messages.each do |message| %>
+	<p><%= message %></p>
+	<% end %>
+<% end %>
+<%= form_for @card do |f| %>
+	<%= f.label :name, "Give your card a name" %>
+	<%= f.text_field :name %>
+	<%= f.label :serial_num, "Serial number (bottom left corner of card)" %>
+	<%= f.text_field :serial_num %>
+	<%= f.label :verification_num, "Verification number (bottom right corner of card)" %>
+	<%= f.text_field :verification_num %>
+	<%= f.label :reminder_amount, "Remind me when balance gets below " %>
+	<%= f.text_field :reminder_amount %>
+	<%= f.label :email_reminder, "By email" %>
+	<%= f.check_box :email_reminder %>
+	<%= f.label :text_reminder, "By text" %>
+	<%= f.check_box :text_reminder %>
+	<%= f.submit "Register card" %>
+<% end %>
