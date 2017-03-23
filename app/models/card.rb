@@ -28,14 +28,23 @@ class Card < ApplicationRecord
 		balance = page3.search('td').children.first.text
 		balance = balance[1..-1].to_f
 		self.update({balance: balance})
+		balance
+	end
+
+	def send_reminder
+		if(self.email_reminder)
+			UserMailer.reminder(self.user, self).deliver!
+		elsif(self.text_reminder)
+			#send text
+		end
 	end
 
 	def self.update_task
 		@cards = Card.all
 		@cards.each do |card|
-			balance = @card.get_balance
-			if balance && (balance <= @card.reminder_amount)
-				@card.send_reminder
+			balance = card.get_balance
+			if balance && (balance <= card.reminder_amount)
+				card.send_reminder
 			end
 		end
 	end

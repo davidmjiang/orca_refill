@@ -1,0 +1,2 @@
+<p>Dear <%= @user.username %>, this is a reminder that your ORCA card number <%= @card_num %> has a balance of <%= number_to_currency(@balance) %>.</p>
+<p>To find your closest ORCA refill location, go to this <%= link_to "map", root_url %></p>
