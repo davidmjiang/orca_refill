@@ -79,8 +79,8 @@ class Map extends React.Component {
 		return latLong;
 	}
 	makeInfoWindowText(location){
-		return `<ul>
-		<li>${location.name}</li>
+		return `<ul style="list-style: none;">
+		<li style="font-weight: bold">${location.name}</li>
 		<li>${location.address}</li>
 		</ul>`
 	}

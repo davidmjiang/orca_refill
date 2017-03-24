@@ -72,3 +72,19 @@ a:hover{
 	margin: 0 10%;
 	cursor: pointer;
 }
+
+.div-3{
+	width: 24%;
+}
+
+.div-6{
+	width: 50%;
+}
+
+.div-3, .div-6{
+	display:inline-block;
+}
+
+.header-btn{
+	vertical-align: text-bottom;
+}

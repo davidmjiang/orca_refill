@@ -1,6 +1,10 @@
-<div class="text-center header">
-    <h1>ORCA refill locations</h1>
-    <h4>Click on a marker to get directions</h4>
-    <h4>Check <%= link_to "my card", log_in_path %></h4>
+<div class="div-3">
+</div>
+<div class="text-center div-6">
+  <h1>ORCA refill locations</h1>
+  <h4>Click on a marker to get directions</h4>
+</div>
+<div class="text-center div-3 header-btn">
+   <%= link_to "Check my card", log_in_path, :class => "btn btn-primary" %>
 </div>
 <%= react_component('App', {locations: @locations},{class: "main"}) %>

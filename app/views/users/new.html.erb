@@ -1,14 +1,32 @@
-<p>Already have an account? <%= link_to "Log in", log_in_path %></p>
-<%= form_for User.new do |f| %>
-<%=f.label :username %>
-<%=f.text_field :username %>
-<%=f.label :email %>
-<%=f.text_field :email %>
-<%=f.label :phone %>
-<%=f.text_field :phone %>
-<%=f.label :password %>
-<%=f.password_field :password %>
-<%=f.label :password_confirmation %>
-<%=f.password_field :password_confirmation %>
-<%=f.submit "Sign Up"%>
-<%end %>
+<div class="div-3">
+</div>
+<div class="div-6">
+	<p>Already have an account? <%= link_to "Log in", log_in_path %></p>
+	<%= form_for User.new do |f| %>
+		<div class="form-group">
+			<%=f.label :username %>
+			<%=f.text_field :username, {class: "form-control", autofocus: true } %>
+		</div>
+		<div class="form-group">
+			<%=f.label :email %>
+			<%=f.text_field :email, class: "form-control" %>
+			<small id="emailHelp" class="form-text">If you want to get email reminders</small>
+		</div>
+		<div class="form-group">
+			<%=f.label :phone %>
+			<%=f.text_field :phone, class: "form-control" %>
+			<small id="phoneHelp" class="form-text">If you want to get text reminders</small>
+		</div>
+		<div class="form-group">
+			<%=f.label :password %>
+			<%=f.password_field :password, class: "form-control" %>
+		</div>
+		<div class="form-group">
+			<%=f.label :password_confirmation %>
+			<%=f.password_field :password_confirmation, class: "form-control" %>
+		</div>
+		<%=f.submit "Sign Up"%>
+	<%end %>
+</div>
+<div class="div-3">
+</div>
