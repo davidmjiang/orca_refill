@@ -1,24 +1,18 @@
-# README
+# ORCA Refill
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Map shows all ORCA refill retail locations in King County.
+![map_view][/app/assets/images/full_map_view.png]
 
-Things you may want to cover:
+Clicking on a marker will automatically get you walking directions from your current location. 
+![directions_view][/app/assets/images/directions_view.png]
 
-* Ruby version
+Register a card to get email and/or text reminders when your balance is getting low. 
 
-* System dependencies
+##Features
 
-* Configuration
+* Rails back-end and React.js front-end
 
-* Database creation
+* Google Maps Javascript API
 
-* Database initialization
+* Rake task checks balance and sends appropriate reminders
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
