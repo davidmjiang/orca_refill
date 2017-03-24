@@ -20,4 +20,5 @@
 /config/application.yml
 
 #Ignore csv
-/.csv
+results.csv
+formatted_results.csv
