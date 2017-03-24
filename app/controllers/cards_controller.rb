@@ -15,6 +15,10 @@ class CardsController < ApplicationController
 		end
 	end
 
+	def show
+		@card = Card.find(params[:id])
+	end
+
 	private
 	def card_params
 		params.require(:card).permit(:name, :serial_num, :verification_num, :reminder_amount, :email_reminder, :text_reminder)

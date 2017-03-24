@@ -1,8 +1,12 @@
-<h1>Hello <%=@user.username%></h1>
-<%= link_to "Register a card", new_card_path %>
+<h3>Welcome, <%=@user.username%></h1>
+<ul class="nav nav-pills">
+  <li class="nav-item active"><%= link_to "My cards", @user, class: "nav-link" %></li>
+   <li class="nav-item active"><%= link_to "Register a card", new_card_path, class: "nav-link" %></li>
+  <li class="nav-item"><%= link_to "Map", root_path, class: "nav-link" %></li>
+  <li class="nav-item"><%= link_to "Logout", log_out_path, class: "nav-link" %></li>
+</ul>
+<ol>
 <% @user.cards.each do |card| %>
-	<%= render :partial=>"card", :locals=>{:card => card} %>
+	<li><%= render :partial=>"card", :locals=>{:card => card} %></li>
 <% end %>
-<%= link_to "Map", root_path %>
-<br>
-<%= link_to "Logout", log_out_path %>
+</ol>

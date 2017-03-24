@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 	def new
+		#redirect to show page if already signed in
 	end
 
 	def create
