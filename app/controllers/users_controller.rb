@@ -14,8 +14,11 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		#before action: check session_id === params[:id]
-		@user = current_user
+		if session[:user_id] && session[:user_id] == params[:id].to_i
+			@user = current_user
+		else
+			redirect_to log_in_path
+		end
 	end
 
 	private

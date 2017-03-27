@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-	default from: 'from@example.com'
+	default from: 'no-reply@orcarefill.com'
 
 	def reminder(user, card)
 		@user = user

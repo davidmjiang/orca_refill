@@ -1,9 +1,9 @@
-<h4><%= card.name %></h4>
+<h4><%= link_to card.name, card %></h4>
 <% if card.balance %>
-	<p>Balance: <%=card.balance %></p>
+	<p>Balance: <%=number_to_currency(card.balance) %></p>
 <% else %>
-	<p>We could not find your balance. Check that your card info is correct.</p>
+	<p>We could not find your balance. Check that your <%= link_to "card info", card %> is correct.</p>
 <% end %>
 <% if card.reminder_amount %>
-<p>Reminder when balance gets below: <%=card.reminder_amount %></p>
+<p>Reminder when balance gets below: <%=number_to_currency(card.reminder_amount) %></p>
 <% end %>

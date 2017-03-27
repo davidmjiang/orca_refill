@@ -1,0 +1,35 @@
+<% if card.errors.any? %>
+		<% card.errors.full_messages.each do |message| %>
+		<p><%= message %></p>
+		<% end %>
+	<% end %>
+	<%= form_for card do |f| %>
+		<div class="form-group">
+			<%= f.label :name, "Give your card a name" %>
+			<%= f.text_field :name, {class: "form-control", autofocus: true } %>
+		</div>
+		<div class="form-group">
+			<%= f.label :serial_num, "Serial number" %>
+			<%= f.text_field :serial_num, class: "form-control" %>
+			<small id="serialNumHelp" class="form-text">Bottom left corner of card</small>
+		</div>
+		<div class="form-group">
+			<%= f.label :verification_num, "Verification number" %>
+			<%= f.text_field :verification_num, class: "form-control" %>
+			<small id="verificationNumHelp" class="form-text">Bottom right corner of card</small>
+		</div>
+		<div class="form-group">
+			<%= f.label :reminder_amount, "Remind me when balance gets below " %>
+			<div class="input-group">
+			<span class="input-group-addon">$</span>
+			<%= f.text_field :reminder_amount, class: "form-control" %>
+			</div>
+		</div>
+		<div class="form-group">
+			<%= f.label :email_reminder, "By email" %>
+			<%= f.check_box :email_reminder %>
+			<%= f.label :text_reminder, "By text" %>
+			<%= f.check_box :text_reminder %>
+		</div>
+		<%= f.submit button_text %>
+	<% end %>

@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 	def new
 		#redirect to show page if already signed in
+		redirect_to current_user if current_user
 	end
 
 	def create

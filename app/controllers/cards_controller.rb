@@ -19,6 +19,19 @@ class CardsController < ApplicationController
 		@card = Card.find(params[:id])
 	end
 
+	def edit
+		@card = Card.find(params[:id])
+	end
+
+	def update
+		@card = Card.find(params[:id])
+		if @card.update(card_params)
+				redirect_to current_user
+		else
+			render :edit
+		end
+	end
+
 	private
 	def card_params
 		params.require(:card).permit(:name, :serial_num, :verification_num, :reminder_amount, :email_reminder, :text_reminder)
