@@ -12,6 +12,10 @@ class Card < ApplicationRecord
 	# 	encrypted_serial = @@crypt.encrypt_and_sign(serial)
 	# end
 
+	def card_num_changed
+		(self.serial_num_changed? || self.verification_num_changed?) && !self.new_record?
+	end
+
 	def get_balance
 		agent = Mechanize.new
 		page = agent.get("https://www.orcacard.com/ERG-Seattle/p4_017.do")

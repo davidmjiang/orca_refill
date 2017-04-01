@@ -25,7 +25,12 @@ class CardsController < ApplicationController
 
 	def update
 		@card = Card.find(params[:id])
+		serial_num = @card.serial_num
+		verification_num = @card.verification_num
 		if @card.update(card_params)
+				if serial_num != @card.serial_num || verification_num != @card.verification_num
+					@card.get_balance
+				end
 				redirect_to current_user
 		else
 			render :edit
