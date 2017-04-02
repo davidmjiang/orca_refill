@@ -18,4 +18,5 @@
 //= require react
 //= require react_ujs
 //= require components
+//= require chartkick
 //= require_tree .

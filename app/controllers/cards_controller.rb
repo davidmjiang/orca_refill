@@ -17,6 +17,12 @@ class CardsController < ApplicationController
 
 	def show
 		@card = Card.find(params[:id])
+		@placeholder_data = {"2017-03-24" => 0,
+			"2017-03-25" => 2.75,
+			"2017-03-26" => 0, 
+			"2017-03-27" => 5.50,
+			"2017-03-28" => 2.75,
+			"2017-03-29" => 2.75}
 	end
 
 	def edit

@@ -7,3 +7,4 @@
 	<li>Email reminders: <%= @card.email_reminder ? "Yes" : "No" %></li>
 	<li>Text reminders: <%= @card.text_reminder ? "Yes" : "No" %></li>
 </ul>
+<%= line_chart @placeholder_data, colors: ["#b00", "#666"], library: {curveType: "none"} %>

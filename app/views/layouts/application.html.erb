@@ -6,6 +6,7 @@
     <script src=<%= "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.secrets.google_api_key}" %> defer></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
