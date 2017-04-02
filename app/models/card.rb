@@ -1,5 +1,6 @@
 class Card < ApplicationRecord
 	belongs_to :user
+	has_many :spendings
 
 	validates :name, presence: true
 	validates :serial_num, presence: true, numericality: true, length: {is: 8}
