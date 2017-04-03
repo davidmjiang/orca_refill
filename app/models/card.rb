@@ -48,7 +48,6 @@ class Card < ApplicationRecord
 		@cards = Card.all
 		@cards.each do |card|
 			if card.balance
-				byebug
 				old_balance = card.balance
         new_balance = card.get_balance
 				card.spendings << Spending.new(amount: old_balance - new_balance)
