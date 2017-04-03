@@ -47,9 +47,14 @@ class Card < ApplicationRecord
 	def self.update_task
 		@cards = Card.all
 		@cards.each do |card|
-			balance = card.get_balance
-			if balance && (balance <= card.reminder_amount)
-				card.send_reminder
+			if card.balance
+				byebug
+				old_balance = card.balance
+        new_balance = card.get_balance
+				card.spendings << Spending.new(amount: old_balance - new_balance)
+				if new_balance <= card.reminder_amount
+					card.send_reminder
+				end
 			end
 		end
 	end
