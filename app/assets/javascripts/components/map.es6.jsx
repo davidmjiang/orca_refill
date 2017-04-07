@@ -14,11 +14,20 @@ class Map extends React.Component {
 		this.initializeMap();
 	}
 	initializeMap(mapCenter){
+		let zoom;
+		let screenWidth = window.innerWidth;
+		if (screenWidth < 425){
+			zoom = 16;
+		}
+		else{
+			zoom = 12;
+		}
+		console.log(zoom);
 		//create map
 		this.map = new google.maps.Map(this.refs.map, {
 			//Downtown Seattle
           center: {lat: 47.6063889, lng: -122.3308333},
-          zoom: 12
+          zoom: zoom
         });
 		this.props.setMap(this.map);
 		let infoWindow = new google.maps.InfoWindow();
