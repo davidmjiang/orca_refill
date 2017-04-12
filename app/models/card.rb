@@ -48,7 +48,7 @@ class Card < ApplicationRecord
 		@cards = Card.all
 		@cards.each do |card|
 			new_balance = card.get_balance
-			if new_balance && new_balance <= card.reminder_amount
+			if new_balance && (new_balance <= card.reminder_amount)
 					card.send_reminder
 			end
 		end

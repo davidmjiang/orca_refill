@@ -88,3 +88,25 @@ a:hover{
 .header-btn{
 	vertical-align: text-bottom;
 }
+
+.mobile{
+	display: none;
+}
+
+@media(max-width: 450px){
+	.desktop{
+		display: none;
+	}
+	.mobile{
+		display: initial;
+	}
+	header{
+		position: absolute;
+		width: 100%;
+		z-index: 99;
+		color: black;
+		background-color: white;
+		border: 1px solid black;
+	}
+
+}
