@@ -62,6 +62,7 @@ class MapContainer extends React.Component {
 	}
   render () {
     return <div className="map-container">
+    	<a className="btn btn-primary mobile check-card" href="/log-in">Check my card</a>
 	    <InfoWindow open={this.state.openSidebar} location={this.state.selectedLocation} userLocation={this.state.userLocation} handleClick={this.toggleSidebar} getDirections={this.getDirections}/>
 	    <Map locations={this.props.locations} onClick={this.editSidebar} setUserLocation={this.setUserLocation} setMap={this.setMap}/>
     </div>;

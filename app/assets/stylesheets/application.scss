@@ -122,4 +122,9 @@ a:hover{
 	.map-container{
 		height: 100%;
 	}
+	.check-card{
+		position: absolute;
+		z-index: 99;
+		right: 0;
+	}
 }
