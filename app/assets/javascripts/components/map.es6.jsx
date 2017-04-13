@@ -17,7 +17,7 @@ class Map extends React.Component {
 		let zoom;
 		let screenWidth = window.innerWidth;
 		if (screenWidth < 425){
-			zoom = 16;
+			zoom = 12;
 		}
 		else{
 			zoom = 12;

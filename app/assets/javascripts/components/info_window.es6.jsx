@@ -17,8 +17,15 @@ class InfoWindow extends React.Component {
 	  	<DirectionsForm getDirections={this.getDirections} userLocation ={this.props.userLocation} />
 	    </div>;
   	}
+  	else if(this.props.location){
+  		return <div className={classes} onClick={this.props.handleClick}>
+  			<p>{this.props.location.name}</p>
+  		</div>;
+  	}
   	else{
-  		return <div />;
+  		return <div className={classes}>
+  			<p>Click an ORCA refill location for directions</p>
+  		</div>;
   	}
   }
 }

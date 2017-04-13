@@ -93,6 +93,10 @@ a:hover{
 	display: none;
 }
 
+.map-container{
+	height: 80vh;
+}
+
 @media(max-width: 450px){
 	.desktop{
 		display: none;
@@ -101,12 +105,21 @@ a:hover{
 		display: initial;
 	}
 	header{
-		position: absolute;
-		width: 100%;
-		z-index: 99;
-		color: black;
-		background-color: white;
-		border: 1px solid black;
+		display: none;
 	}
-
+	.sidebar{
+		width:100%;
+		left: 0;
+		bottom: 0;
+		height: initial;
+	}
+	.slide-in{
+		height: 100%;
+	}
+	.react-root{
+		height: 100%;
+	}
+	.map-container{
+		height: 100%;
+	}
 }

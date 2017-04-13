@@ -61,10 +61,7 @@ class MapContainer extends React.Component {
 		this.setState({map: map});
 	}
   render () {
-  	const divStyle = {
-			height: '80vh'
-		}
-    return <div style={divStyle}>
+    return <div className="map-container">
 	    <InfoWindow open={this.state.openSidebar} location={this.state.selectedLocation} userLocation={this.state.userLocation} handleClick={this.toggleSidebar} getDirections={this.getDirections}/>
 	    <Map locations={this.props.locations} onClick={this.editSidebar} setUserLocation={this.setUserLocation} setMap={this.setMap}/>
     </div>;
