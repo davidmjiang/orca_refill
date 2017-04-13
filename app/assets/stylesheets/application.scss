@@ -97,7 +97,7 @@ a:hover{
 	height: 80vh;
 }
 
-@media(max-width: 450px){
+@media only screen and (min-device-width: 320px) and (max-device-width: 667px){
 	.desktop{
 		display: none;
 	}
