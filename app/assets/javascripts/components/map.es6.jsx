@@ -88,8 +88,8 @@ class Map extends React.Component {
 		return latLong;
 	}
 	makeInfoWindowText(location){
-		return `<ul style="list-style: none;">
-		<li style="font-weight: bold">${location.name}</li>
+		return `<ul style="list-style: none; font-family: Trebuchet-MS, Genva, sans-serif;">
+		<li style="font-weight: bold; font-size: large;">${location.name}</li>
 		<li>${location.address}</li>
 		</ul>`
 	}

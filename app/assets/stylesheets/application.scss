@@ -13,14 +13,24 @@
  */
  
 @import "bootstrap";
-$sidebar-width: 35%;
+$sidebar-width: 33%;
 html, body, .main{
-	height: 100%;
-	font-family: Tahoma, Geneva, sans-serif;
+	font-family: Trebuchet-MS, Geneva, sans-serif;
 	color: white;
 	background-color: #244a9f;
 }
 
+.container{
+	margin-top: 20px;
+}
+
+input{
+	font-family: Trebuchet-MS, Geneva, sans-serif; 
+}
+
+.btn-primary{
+	background-color: #4285F4;
+}
 a{
 	color: white;
 }
@@ -43,7 +53,7 @@ a:hover{
 	-webkit-transition: left 0.5s;
 	background-color: #4285F4;
 	color: white;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 .slide-in{
@@ -52,10 +62,16 @@ a:hover{
 
 .close-sidebar{
 	float: right;
+	background-color: inherit;
+	color: white;
+	font-size: x-large;
+	cursor: pointer;
 }
 
 .directions-form{
-	color: black;
+	color: white;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .directions-text{
@@ -73,20 +89,50 @@ a:hover{
 	cursor: pointer;
 }
 
+.hidden-submit{
+	visibility: hidden;
+}
+
+.info-window-name{
+	font-weight: bold;
+	margin: 10px;
+}
+
+.info-window-address{
+	margin-left: 10px;
+}
+
 .div-3{
 	width: 24%;
+}
+
+.div-4{
+	width: 33%;
 }
 
 .div-6{
 	width: 50%;
 }
 
-.div-3, .div-6{
+.div-3, .div-4, .div-6{
 	display:inline-block;
+}
+
+header{
+	padding-top: 10px;
+	padding-bottom: 2px;
+}
+
+header .div-4{
+	text-align: center;
 }
 
 .header-btn{
 	vertical-align: text-bottom;
+}
+
+footer{
+	margin-top: 10px;
 }
 
 .mobile{
@@ -98,13 +144,16 @@ a:hover{
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 667px){
+	html, body, .main{
+		height: 100%;
+	}
 	.desktop{
 		display: none;
 	}
 	.mobile{
 		display: initial;
 	}
-	header{
+	header, footer{
 		display: none;
 	}
 	.sidebar{

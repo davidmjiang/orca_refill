@@ -7,6 +7,7 @@ class DirectionsForm extends React.Component {
 		this.processForm = this.processForm.bind(this);
 		this.updateTravelMode = this.updateTravelMode.bind(this);
 		this.updateOrigin = this.updateOrigin.bind(this);
+		this.checkEnter = this.checkEnter.bind(this);
 	}
 	componentDidMount(){
 		// if geolocation is on, automatically get walking directions from there
@@ -30,8 +31,15 @@ class DirectionsForm extends React.Component {
 		let travelMode = e.currentTarget.getAttribute("value")
 		this.processForm(travelMode)
 	}
+	checkEnter(e){
+		if(e.which == 13){
+			e.preventDefault();
+			this.processForm("WALKING");
+		}
+	}
 	processForm(travelMode, origin){
 		origin = origin || this.state.origin;
+		travelMode = travelMode || "WALKING";
 		this.refs.directionsText.innerHTML = '';
 		this.props.getDirections({origin: origin, travelMode: travelMode}, this.refs.directionsText);
 	}
@@ -40,7 +48,7 @@ class DirectionsForm extends React.Component {
     return <div>
     <form className="directions-form" onSubmit={this.processForm}>
     	<div className="form-group">
-	  	Get directions from <input type="text" className="form-control" name="origin" id="origin" value={this.state.origin} onChange={this.updateOrigin}/> 
+	  	Get directions from <input type="text" className="form-control" name="origin" id="origin" value={this.state.origin} onChange={this.updateOrigin} onKeyDown={this.checkEnter}/> 
     	</div>
     	<div className="form-check">
     		<label className="form-check-label">

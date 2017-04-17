@@ -1,15 +1,20 @@
 <header class="header desktop">
-	<div class="div-3">
+	<div class="div-4">
+	  <h1>orca refill</h1>
 	</div>
-	<div class="text-center div-6 desktop">
-	  <h1>ORCA refill locations</h1>
-	  <h4>Click on a marker to get directions</h4>
+	<div class="text-center div-4 desktop">
 	</div>
-	<div class="text-center div-6 mobile">
-		<p>ORCA refill locations</p>
-	</div>
-	<div class="text-center div-3 header-btn">
-	   <%= link_to "Check my card", log_in_path, :class => "btn btn-primary" %>
+	<div class="text-center div-4 header-btn">
+	   <%= link_to "check my card", log_in_path, :class => "btn btn-primary" %>
 	</div>
 </header>
 <%= react_component('App', {locations: @locations},{class: "main"}) %>
+<footer>
+	<div class="div-4">
+	</div>
+	<div class="text-center div-4 desktop">
+	  <h4>click a pin for directions</h4>
+	</div>
+	<div class="text-center div-4 header-btn">
+	</div>
+</footer>

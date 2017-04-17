@@ -1,9 +1,11 @@
-<h4>Card name: <%= @card.name %></h4>
-<%= link_to "edit", edit_card_path(@card) %>
-<ul class="card-details">
-	<li>Serial number: <%= @card.serial_num %></li>
-	<li>Verification number: <%= @card.verification_num %></li>
-	<li>Reminder amount: <%= number_to_currency(@card.reminder_amount) %></li>
-	<li>Email reminders: <%= @card.email_reminder ? "Yes" : "No" %></li>
-	<li>Text reminders: <%= @card.text_reminder ? "Yes" : "No" %></li>
-</ul>
+<div class="container">
+	<h4>Card name: <%= @card.name %></h4>
+	<%= link_to "edit", edit_card_path(@card) %>
+	<ul class="card-details">
+		<li>Serial number: <%= @card.serial_num %></li>
+		<li>Verification number: <%= @card.verification_num %></li>
+		<li>Reminder amount: <%= number_to_currency(@card.reminder_amount) %></li>
+		<li>Email reminders: <%= @card.email_reminder ? "Yes" : "No" %></li>
+		<li>Text reminders: <%= @card.text_reminder ? "Yes" : "No" %></li>
+	</ul>
+</div>
