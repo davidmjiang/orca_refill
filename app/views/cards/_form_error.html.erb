@@ -1,0 +1,4 @@
+<% if !resource.errors[attribute.to_sym].empty? %>
+	<% attribute_display = attribute_display || attribute %>
+	<small class="form-text error-text"><%= attribute_display + " " + resource.errors[attribute.to_sym][0] %></small>
+<% end %>

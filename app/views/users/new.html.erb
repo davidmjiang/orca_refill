@@ -3,10 +3,13 @@
 	</div>
 	<div class="div-6">
 		<p>Already have an account? <%= link_to "Log in", log_in_path %></p>
-		<%= form_for User.new do |f| %>
+		<%= form_for @user do |f| %>
 			<div class="form-group">
 				<%=f.label :username %>
 				<%=f.text_field :username, {class: "form-control", autofocus: true } %>
+				<% if !@user.errors[:username].empty? %>
+					<small class="form-text error-text">Username <%= @user.errors[:username][0] %></small>
+				<% end %>
 			</div>
 			<div class="form-group">
 				<%=f.label :email %>
@@ -21,10 +24,16 @@
 			<div class="form-group">
 				<%=f.label :password %>
 				<%=f.password_field :password, class: "form-control" %>
+				<% if !@user.errors[:password].empty? %>
+					<small class="form-text error-text">Password <%= @user.errors[:password][0] %></small>
+				<% end %>
 			</div>
 			<div class="form-group">
 				<%=f.label :password_confirmation %>
 				<%=f.password_field :password_confirmation, class: "form-control" %>
+				<% if !@user.errors[:password_confirmation].empty? %>
+					<small class="form-text error-text">Password Confirmation <%= @user.errors[:password_confirmation][0] %></small>
+				<% end %>
 			</div>
 			<%=f.submit "Sign Up"%>
 		<%end %>

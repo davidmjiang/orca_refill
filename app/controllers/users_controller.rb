@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	def new
+		@user = User.new
 	end
 
 	def create
@@ -9,7 +10,7 @@ class UsersController < ApplicationController
 			redirect_to @user
 		else
 			flash[:alert] = "There was a problem creating your account. Please try again."
-			redirect_to :back
+			render :new
 		end
 	end
 
