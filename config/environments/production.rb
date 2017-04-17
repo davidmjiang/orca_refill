@@ -73,7 +73,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method ||= :smtp
 
   config.action_mailer.default_url_options = {
-    :host => 'https://morning-fjord-72027.herokuapp.com'
+    :host => 'https://orcarefill.herokuapp.com'
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
