@@ -43,20 +43,21 @@ class Map extends React.Component {
 				infoWindow.setContent('You are here');
 				infoWindow.open(this.map);
 			}, () => {
-				this.handleLocationError(true, infoWindow, this.map.getCenter());
+				this.handleLocationError(true, infoWindow, this.map);
 			});
 		}
 		else{
-			this.handleLocationError(false, infoWindow, this.map.getCenter());
+			this.handleLocationError(false, infoWindow, this.map);
 		}
 		//create marker and info window
 		this.props.locations.forEach((location) => {
 			let marker = this.makeMarker(location);
 		});
 	}
-	handleLocationError (browserHasGeolocation, infoWindow, pos){
-		infoWindow.setPosition(pos);
+	handleLocationError (browserHasGeolocation, infoWindow, map){
+		infoWindow.setPosition(map.getCenter());
 		infoWindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Your browser doesn\'t support geolocation.');
+		infoWindow.open(map);
 	}
 	makeMarker (location){
 		let position = this.makeLatLong(location);
