@@ -4,10 +4,10 @@ include Math
 EARTH_RADIUS = 6371
 
 def self.get_distance(p1, p2)
-	lat1 = to_radians(p1.latitude)
-	lat2 = to_radians(p2.latitude)
-	long1 = to_radians(p1.longitude)
-	long2 = to_radians(p2.longitude)
+	lat1 = to_radians(p1[:latitude])
+	lat2 = to_radians(p2[:latitude])
+	long1 = to_radians(p1[:longitude])
+	long2 = to_radians(p2[:longitude])
 	d_lat = lat2 - lat1
 	d_long = long2 - long1
 

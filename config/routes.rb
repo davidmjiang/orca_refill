@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   post "/log-in" => "sessions#create"
   get "/log-out" => "sessions#destroy", as: :log_out
   resources :cards
-  get "/closest-points" => "locations#closest"
+  get "/closest-points" => "location#closest" #query lat=1234&long=1234
 end
