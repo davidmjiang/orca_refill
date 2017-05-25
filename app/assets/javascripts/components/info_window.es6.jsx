@@ -17,7 +17,8 @@ class InfoWindow extends React.Component {
   	if(this.props.open && this.props.location){
 	    return <div className={classes}>
       {backButton}
-			<button type="button" className="btn btn-default close-sidebar" onClick={this.props.handleClick}>&times;</button>	
+			<button type="button" className="btn btn-default close-sidebar desktop" onClick={this.props.handleClick}>&times;</button>	
+      <button type="button" className="btn btn-link close-sidebar mobile" onClick={this.props.handleClick}>Map</button> 
 	    <h4 className="info-window-name">{this.props.location.name}</h4>
 	    <p className="info-window-address">{this.props.location.address}</p>
 	  	<DirectionsForm getDirections={this.getDirections} userLocation ={this.props.userLocation} />
