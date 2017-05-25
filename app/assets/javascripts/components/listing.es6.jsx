@@ -9,9 +9,9 @@ class Listing extends React.Component {
 	}
   render () {
     return <button className="listing list-group-item list-group-item-action" onClick={this.handleClick}>
-    	{this.props.result.location.name} -
-    	{this.props.result.location.address}
-    </button>;
+    	{this.props.result.location.name} - {this.props.result.distance} mi
+    	<p>{this.props.result.location.address}</p>
+    </button>
   }
 }
 
