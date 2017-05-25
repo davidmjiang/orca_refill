@@ -23,7 +23,7 @@ class InfoWindow extends React.Component {
 	  	<DirectionsForm getDirections={this.getDirections} userLocation ={this.props.userLocation} />
 	    </div>;
   	}
-    else if(this.props.userLocation){
+    else if(this.props.open && this.props.userLocation){
       return <div className={classes}>
       <h3>Your closest locations:</h3>
       <div className="list-group">
