@@ -36,7 +36,6 @@ class Map extends React.Component {
 					lat: position.coords.latitude,
 					lng: position.coords.longitude
 				};
-				// get request for closest locations
 				this.props.setUserLocation(pos);
 				this.map.setCenter(pos);
 				infoWindow.setPosition(pos);

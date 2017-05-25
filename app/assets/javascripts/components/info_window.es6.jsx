@@ -13,9 +13,10 @@ class InfoWindow extends React.Component {
   }
   render () {
   	let classes = this.props.open ? "sidebar slide-in" : "sidebar";
+    let backButton = this.props.userLocation ? <button type="button" className="btn btn-link back-button" onClick={this.props.backButton}>Back</button> : null;
   	if(this.props.open && this.props.location){
 	    return <div className={classes}>
-      <button type="button" className="btn btn-link back-button" onClick={this.props.backButton}>Back</button>
+      {backButton}
 			<button type="button" className="btn btn-default close-sidebar" onClick={this.props.handleClick}>&times;</button>	
 	    <h4 className="info-window-name">{this.props.location.name}</h4>
 	    <p className="info-window-address">{this.props.location.address}</p>
