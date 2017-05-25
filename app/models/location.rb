@@ -16,7 +16,7 @@ class Location < ApplicationRecord
 			dist = Distance.get_distance(loc, query)
 			top5.add({location: loc, distance: dist})
 		end
-		return top5.elements
+		return top5.elements.sort_by{ |obj| obj[:distance]}
 	end
 
 end

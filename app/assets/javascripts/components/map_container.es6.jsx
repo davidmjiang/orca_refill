@@ -8,7 +8,8 @@ class MapContainer extends React.Component {
 		this.getDirections = this.getDirections.bind(this);
 		this.setMap = this.setMap.bind(this);
 		this.createRequest = this.createRequest.bind(this);
-		this.state = {openSidebar: false, selectedLocation: null, userLocation: null, map: null, directions: null};
+		this.resetLocation = this.resetLocation.bind(this);
+		this.state = {openSidebar: false, selectedLocation: null, userLocation: null, map: null, directions: null, closest: null};
 		this.directionsService = new google.maps.DirectionsService();
 		this.directionsDisplay = new google.maps.DirectionsRenderer();
 	}
@@ -55,15 +56,21 @@ class MapContainer extends React.Component {
 		return request;
 	}
 	setUserLocation(pos){
-		this.setState({userLocation: pos});
+		var query = `?lat=${pos.lat}&long=${pos.lng}`;
+    $.get('/closest-points/'+ query, (data)=>{
+			this.setState({userLocation: pos, openSidebar: true, closest: data});
+    });
 	}
 	setMap(map){
 		this.setState({map: map});
 	}
+	resetLocation(){
+		this.setState({selectedLocation: null});
+	}
   render () {
     return <div className="map-container">
     	<a className="btn btn-primary mobile check-card" href="/log-in">Check my card</a>
-	    <InfoWindow open={this.state.openSidebar} location={this.state.selectedLocation} userLocation={this.state.userLocation} handleClick={this.toggleSidebar} getDirections={this.getDirections}/>
+	    <InfoWindow open={this.state.openSidebar} location={this.state.selectedLocation} userLocation={this.state.userLocation} closest={this.state.closest} handleClick={this.toggleSidebar} getDirections={this.getDirections} handleChoice={this.editSidebar} backButton={this.resetLocation}/>
 	    <Map locations={this.props.locations} onClick={this.editSidebar} setUserLocation={this.setUserLocation} setMap={this.setMap}/>
     </div>;
   }

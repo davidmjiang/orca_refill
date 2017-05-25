@@ -22,7 +22,6 @@ class Map extends React.Component {
 		else{
 			zoom = 12;
 		}
-		console.log(zoom);
 		//create map
 		this.map = new google.maps.Map(this.refs.map, {
 			//Downtown Seattle
@@ -37,6 +36,7 @@ class Map extends React.Component {
 					lat: position.coords.latitude,
 					lng: position.coords.longitude
 				};
+				// get request for closest locations
 				this.props.setUserLocation(pos);
 				this.map.setCenter(pos);
 				infoWindow.setPosition(pos);
